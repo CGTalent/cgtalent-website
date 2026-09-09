@@ -320,7 +320,7 @@
     </div>
     <div>
       <h4>Contact</h4>
-      <p><a href="mailto:contact@cgmtalent.com">contact@cgmtalent.com</a></p>
+      <p><a href="mailto:contact@cgtalent.uk">contact@cgtalent.uk</a></p>
       <p><a href="#contact">Send a message</a></p>
     </div>
   </div>
@@ -338,14 +338,14 @@
     form.addEventListener('submit',async function(ev){
       const status=document.getElementById('status');
       const action=form.action;
-      if(action.includes('YOUR_FORM_ID')){ ev.preventDefault(); status.textContent='Form not yet connected — please email contact@cgmtalent.com. Thank you!'; status.style.color='#533afd'; return; }
+      if(action.includes('YOUR_FORM_ID')){ ev.preventDefault(); status.textContent='Form not yet connected — please email contact@cgtalent.uk. Thank you!'; status.style.color='#533afd'; return; }
       ev.preventDefault();
       status.textContent='Sending...'; status.style.color='#533afd';
       try{
         const res=await fetch(action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});
         if(res.ok){ form.reset(); status.textContent='Thanks — your message is on its way. We\'ll be in touch shortly.'; status.style.color='#15be53'; }
-        else{ status.textContent='Something went wrong. Please email us directly at contact@cgmtalent.com.'; status.style.color='#ea2261'; }
-      }catch(e){ status.textContent='Network error. Please email us directly at contact@cgmtalent.com.'; status.style.color='#ea2261'; }
+        else{ status.textContent='Something went wrong. Please email us directly at contact@cgtalent.uk.'; status.style.color='#ea2261'; }
+      }catch(e){ status.textContent='Network error. Please email us directly at contact@cgtalent.uk.'; status.style.color='#ea2261'; }
     });
   }
 </script>
