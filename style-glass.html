@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CGTalent — Live Event Hosts, Presenters &amp; DJs</title>
+<meta name="description" content="CGTalent - live event hosts and presenters for hire across the UK.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#171a2e;--mut:#5a5f78;--pink:#ff6bbf;--violet:#7a6bff;--peach:#ffb37a;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);line-height:1.55;min-height:100vh;background:#eef0ff;overflow-x:hidden}
+  /* animated gradient-mesh backdrop */
+  body::before{content:'';position:fixed;inset:0;z-index:-2;background:
+    radial-gradient(at 15% 15%,#ffd6ec 0,transparent 45%),
+    radial-gradient(at 85% 10%,#d5d2ff 0,transparent 45%),
+    radial-gradient(at 75% 85%,#d5f0ff 0,transparent 45%),
+    radial-gradient(at 20% 80%,#ffe6cf 0,transparent 45%),
+    linear-gradient(135deg,#f3edff,#e8f1ff)}
+  body::after{content:'';position:fixed;inset:0;z-index:-1;backdrop-filter:blur(2px)}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+
+  /* frosted glass primitive */
+  .glass{background:rgba(255,255,255,.45);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);border:1px solid rgba(255,255,255,.6);box-shadow:0 18px 50px rgba(120,110,200,.18)}
+
+  header{position:sticky;top:0;z-index:50;padding:16px 0;background:rgba(238,240,255,.6);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.5)}
+  .nav{display:flex;align-items:center;justify-content:space-between;max-width:1120px;margin:0 auto;padding:0 22px;gap:16px}
+  .brand{font-weight:800;font-size:1.35rem;color:var(--ink);text-decoration:none}
+  .brand b{background:linear-gradient(135deg,var(--pink),var(--violet));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  nav a{color:var(--ink);text-decoration:none;font-size:.95rem;font-weight:600;margin:0 12px}
+  nav a:hover{opacity:.7}
+  .cta{background:linear-gradient(135deg,var(--pink),var(--violet));color:#fff;text-decoration:none;font-weight:700;font-size:.9rem;padding:11px 22px;border-radius:999px;box-shadow:0 8px 20px rgba(122,107,255,.35)}
+
+  .hero{padding:100px 0 70px;text-align:center;position:relative}
+  .hero h1{font-weight:800;font-size:clamp(2.6rem,6vw,4.2rem);line-height:1.05;letter-spacing:-.02em}
+  .hero h1 em{background:linear-gradient(135deg,var(--pink),var(--violet));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-style:normal}
+  .hero .statement{max-width:700px;margin:24px auto 0;font-size:1.25rem;line-height:1.5;color:var(--ink);background:rgba(255,255,255,.4);backdrop-filter:blur(8px);padding:24px 30px;border-radius:24px;border:1px solid rgba(255,255,255,.6)}
+  .hero .statement b{color:var(--violet)}
+  .hero .sub{color:var(--mut);font-size:1.1rem;max-width:620px;margin:20px auto 0}
+  .cta-row{display:flex;gap:16px;justify-content:center;margin-top:30px;flex-wrap:wrap}
+  .btn{background:linear-gradient(135deg,var(--pink),var(--violet));color:#fff;border:none;padding:15px 30px;border-radius:999px;font-weight:700;font-size:1.02rem;cursor:pointer;text-decoration:none;box-shadow:0 10px 26px rgba(122,107,255,.35)}
+  .btn-ghost{background:rgba(255,255,255,.6);color:var(--ink);border:1px solid rgba(255,255,255,.8);padding:14px 30px;border-radius:999px;font-weight:700;text-decoration:none;backdrop-filter:blur(8px)}
+
+  section{padding:76px 0}
+  .card-sec .glass{padding:60px 48px;border-radius:32px}
+  .kicker{display:inline-block;font-weight:700;color:var(--violet);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase}
+  h2{font-weight:800;font-size:clamp(2rem,4.5vw,3rem);line-height:1.08;letter-spacing:-.02em;margin-top:12px}
+  .sec-sub{color:var(--mut);font-size:1.1rem;max-width:680px;line-height:1.55;margin-top:14px}
+
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  @media(max-width:900px){.split{grid-template-columns:1fr}}
+  .lead{color:var(--ink);font-size:1.15rem}
+  .lead2{color:var(--mut)}
+  ul.dots{list-style:none;padding:0;margin-top:18px}
+  ul.dots li{background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.7);border-radius:16px;padding:13px 18px;margin-bottom:10px;font-weight:600;backdrop-filter:blur(6px)}
+  ul.dots li::before{content:'● ';color:var(--pink)}
+  .imgframe{border-radius:28px;overflow:hidden;box-shadow:0 24px 60px rgba(120,110,200,.25);border:1px solid rgba(255,255,255,.6)}
+  .imgframe img{display:block;width:100%}
+
+  .mike-head{font-weight:800;font-size:2.6rem;letter-spacing:-.02em}
+  .tagline{color:var(--pink);font-weight:700;letter-spacing:.03em}
+  .bio{color:var(--mut);font-size:1.06rem;line-height:1.6}
+  .quote{background:linear-gradient(135deg,var(--pink),var(--violet));color:#fff;border-radius:22px;padding:22px 26px;margin-top:18px;font-size:1.12rem;font-weight:600;box-shadow:0 14px 34px rgba(122,107,255,.3)}
+
+  .more-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px}
+  @media(max-width:900px){.more-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.more-grid{grid-template-columns:1fr}}
+  .g{position:relative;border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.6);box-shadow:0 16px 40px rgba(120,110,200,.18)}
+  .g img{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:4/3}
+  .g .cap{position:absolute;left:0;bottom:0;right:0;background:rgba(23,26,46,.5);backdrop-filter:blur(6px);color:#fff;padding:8px 16px;font-size:.88rem}
+
+  .how-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:36px}
+  @media(max-width:900px){.how-cards{grid-template-columns:1fr}}
+  .hcard{border-radius:26px;padding:32px}
+  .hcard .num{font-weight:800;color:var(--violet);font-size:1.05rem}
+  .hcard:nth-child(2) .num{color:var(--pink)}
+  .hcard h3{font-size:1.4rem;font-weight:800;margin-top:12px}
+  .hcard p{color:var(--mut);font-size:.99rem;margin-top:8px}
+  .howsub{color:var(--mut);font-size:1.08rem;max-width:690px}
+  .howsub b{color:var(--ink)}
+
+  .band .glass{padding:70px 30px;border-radius:36px;text-align:center;background:linear-gradient(135deg,rgba(122,107,255,.92),rgba(255,107,191,.92));color:#fff;border:none;box-shadow:0 30px 70px rgba(122,107,255,.4)}
+  .band h2{color:#fff}
+  .band p{color:#f6efff;font-size:1.15rem;max-width:620px;margin:18px auto 0}
+  .bbtn{background:#fff;color:var(--violet);border:none;padding:15px 30px;border-radius:999px;font-weight:800;margin-top:28px;text-decoration:none;display:inline-block}
+
+  .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+  @media(max-width:900px){.gallery-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.gallery-grid{grid-template-columns:1fr}}
+  .gc{position:relative;border-radius:20px;overflow:hidden;box-shadow:0 16px 40px rgba(120,110,200,.18);border:1px solid rgba(255,255,255,.5)}
+  .gc img{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:4/3}
+  .gc .cap{position:absolute;left:0;bottom:0;right:0;background:rgba(23,26,46,.4);backdrop-filter:blur(6px);color:#fff;padding:8px 14px;font-size:.86rem}
+
+  .box{max-width:640px;margin:40px auto 0;padding:40px;border-radius:30px}
+  .field{margin-bottom:18px}
+  .field label{display:block;font-size:.9rem;font-weight:700;color:var(--mut);margin-bottom:8px}
+  .field input,.field textarea,select{width:100%;padding:14px;border:1px solid rgba(255,255,255,.7);border-radius:16px;background:rgba(255,255,255,.65);color:var(--ink);font-size:1rem;font-family:inherit;backdrop-filter:blur(6px)}
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--violet);background:rgba(255,255,255,.85)}
+  .field textarea{min-height:120px}
+  .form-note{color:var(--mut);font-size:.86rem;text-align:center;margin-top:12px}
+
+  footer{padding:48px 0 26px}
+  footer .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+  footer a,footer p{color:var(--mut);font-size:.93rem;text-decoration:none;line-height:1.5}
+  footer h4{color:var(--mut);font-size:.82rem;letter-spacing:.05em;text-transform:uppercase;margin-bottom:12px}
+  footer .fbrand{font-weight:800;color:var(--ink);font-size:1.2rem}
+  .footline{color:var(--mut);font-size:.86rem;text-align:center;margin-top:20px}
+  @media(max-width:900px){.how-cards,.gallery-grid,.more-grid,footer .wrap{grid-template-columns:1fr}.nav nav{display:none}.card-sec .glass{padding:40px 24px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a class="brand" href="#top"><b>CG</b>Talent</a>
+    <nav><a href="#hosts">Live Hosts</a><a href="#mike">Mike Toolan</a><a href="#contact">Contact</a></nav>
+    <a class="cta" href="#contact">Hire a host</a>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <span class="kicker" style="margin-bottom:18px">Live event hosts · presenters · DJs · UK</span>
+    <h1>Great events need <em>great hosts</em>.</h1>
+    <p class="statement">The right presenter doesn&rsquo;t just introduce what&rsquo;s next. <b>They lift the room. Read the audience. Create the energy.</b> And turn an event into something people remember.</p>
+    <p class="sub">CGTalent connects event organisers with exceptional broadcasters, presenters and personalities for live events across the UK.</p>
+    <div class="cta-row">
+      <a class="btn" href="#hosts">Find your host &rarr;</a>
+      <a class="btn-ghost" href="#contact">Get in touch</a>
+    </div>
+  </div>
+</section>
+
+<section class="card-sec" id="hosts">
+  <div class="wrap">
+    <div class="glass split" style="padding:56px 48px;border-radius:32px">
+      <div>
+        <span class="kicker">Looking for a host?</span>
+        <h2>Put the right person on the stage. <em style="color:var(--violet);font-style:normal;">Change the whole event.</em></h2>
+        <p class="lead" style="margin-top:16px;">The right host doesn&rsquo;t just keep things moving - they make the event come alive.</p>
+        <p class="lead2" style="margin-top:8px;">They command the room, connect with the audience, lift the energy and make every moment feel effortless.</p>
+        <ul class="dots">
+          <li>Corporate events &amp; conferences</li>
+          <li>Awards ceremonies</li>
+          <li>Live &amp; hybrid shows</li>
+          <li>Product launches &amp; special events</li>
+          <li>Experienced broadcasters &amp; presenters</li>
+        </ul>
+        <p class="lead" style="margin-top:12px;"><b>A brilliant host will turn a great event into one people remember.</b></p>
+        <div style="margin-top:20px;"><a class="btn" href="#contact">Find a host &rarr;</a></div>
+      </div>
+      <div class="imgframe"><img src="images/LIVE.jpg" alt="Live event hosting"></div>
+    </div>
+  </div>
+</section>
+
+<section id="mike">
+  <div class="wrap split">
+    <div class="imgframe"><img src="images/toolan_3.jpg" alt="Mike Toolan" style="aspect-ratio:1/1;object-fit:cover;"></div>
+    <div>
+      <span class="kicker">Live event host</span>
+      <div class="mike-head" style="margin-top:8px;">Mike Toolan</div>
+      <div class="tagline" style="margin-top:6px;">Broadcaster. Presenter. Live host.</div>
+      <p class="bio" style="margin-top:14px;">Mike Toolan is one of the UK&rsquo;s most experienced radio presenters - heard Monday to Friday on Hits Radio Drivetime alongside Gemma Atkinson.</p>
+      <p class="bio" style="margin-top:10px;">Warm, quick, experienced and completely at home in front of a live audience, Mike brings the same personality and energy to the stage that listeners know from the radio.</p>
+      <ul class="dots">
+        <li>Monday-Friday, nationwide, on Hits Radio Drivetime alongside Gemma Atkinson</li>
+        <li>Reaching 1.8 million listeners every day</li>
+        <li>A trusted, engaging and highly experienced host who brings energy, warmth and professionalism to every event</li>
+      </ul>
+      <div class="quote">&ldquo;A great host makes your event feel effortless. That&rsquo;s the job - and Mike nails it&rdquo;</div>
+      <div style="margin-top:22px;"><a class="btn" href="#contact">Enquire about Mike &rarr;</a><a class="btn-ghost" href="#hosts" style="margin-left:10px;">Our live hosts</a></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">More about Mike</span>
+    <h2>More about Mike.</h2>
+    <p class="sec-sub">A few moments from the calendar - on air and at events. Add more of Mike&rsquo;s best work, images and videos here.</p>
+    <div class="more-grid">
+      <div class="g"><img src="images/toolan_1.jpg" alt="Mike at an event"><span class="cap">At an event</span></div>
+      <div class="g"><img src="images/toolan_2.jpg" alt="Mike on air"><span class="cap">On air</span></div>
+      <div class="g"><img src="images/toolan_5.jpg" alt="Mike behind the scenes"><span class="cap">Behind the scenes</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="card-sec">
+  <div class="wrap">
+    <div class="glass" style="padding:56px 48px;border-radius:32px">
+      <span class="kicker">How it works</span>
+      <h2>Hiring a host is simple.</h2>
+      <p class="howsub" style="margin-top:14px;">You concentrate on your event and your audience. <b>We concentrate on putting the right host in front of them.</b></p>
+      <div class="how-cards">
+        <div class="hcard glass"><div class="num">01</div><h3>Tell us about your event</h3><p>Your occasion, your audience, your tone - so we can match the right personality to the room.</p></div>
+        <div class="hcard glass"><div class="num">02</div><h3>We suggest the right host</h3><p>We recommend experienced presenters who genuinely fit your event, not a generic shortlist.</p></div>
+        <div class="hcard glass"><div class="num">03</div><h3>We handle the details</h3><p>From the first call to the day itself, we manage the process so you can focus on your event.</p></div>
+      </div>
+      <div style="margin-top:30px;text-align:center;"><a class="btn" href="#contact">Talk about your event &rarr;</a></div>
+    </div>
+  </div>
+</section>
+
+<div class="band">
+  <div class="wrap">
+    <div class="glass" style="padding:70px 30px;border-radius:36px;text-align:center;background:linear-gradient(135deg,rgba(122,107,255,.92),rgba(255,107,191,.92));color:#fff;border:none">
+      <h2>Live events, handled properly.</h2>
+      <p>Getting the right host is one of the biggest decisions for your event. We take the stress out of finding them - so the right person is on your stage, and everything runs smoothly.</p>
+      <a class="bbtn" href="#contact">Talk to us &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">Out &amp; about</span>
+    <h2>On air. On stage. In the room.</h2>
+    <p class="sec-sub">From studios and stages to awards nights, conferences and major live events - this is where our talent comes alive.</p>
+    <div class="gallery-grid">
+      <div class="gc"><img src="images/LIVE.jpg" alt="On air"><span class="cap">On air</span></div>
+      <div class="gc"><img src="images/toolan_1.jpg" alt="At an event"><span class="cap">At an event</span></div>
+      <div class="gc"><img src="images/toolan_2.jpg" alt="Backstage"><span class="cap">Backstage</span></div>
+      <div class="gc"><img src="images/toolan_3.jpg" alt="Live moment"><span class="cap">Live moment</span></div>
+      <div class="gc"><img src="images/toolan_5.jpg" alt="Behind the scenes"><span class="cap">Behind the scenes</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <span class="kicker">Contact</span>
+    <h2>Let&rsquo;s put someone brilliant on your stage.</h2>
+    <p class="sec-sub">Looking for a host for your event? Let&rsquo;s find them. <b>Tell us what you have in mind.</b> We aim to respond within two working days.</p>
+    <div class="box glass">
+      <form id="cform" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" required placeholder="Your name"></div>
+        <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required placeholder="you@example.com"></div>
+        <div class="field"><label for="tl">I'm interested in</label>
+          <select id="tl" name="type"><option value="booking">Booking a live event host</option><option value="partnership">A partnership or other enquiry</option></select>
+        </div>
+        <div class="field"><label for="msg">Message</label><textarea id="msg" name="message" rows="5" required placeholder="Tell us about your event..."></textarea></div>
+        <button class="btn" type="submit" style="width:100%;padding:14px;">Send message &rarr;</button>
+        <p class="form-note">We'll only use these details to reply to you.</p>
+        <p class="form-note" id="status"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><div class="fbrand">CGTalent</div><p style="margin-top:10px;">Live event hosts and presenters, for hire across the UK.</p></div>
+    <div><h4>Explore</h4><p><a href="#hosts">Live Hosts</a></p><p><a href="#mike">Mike Toolan</a></p><p><a href="#contact">Contact</a></p></div>
+    <div><h4>Contact</h4><p><a href="mailto:contact@cgtalent.uk">contact@cgtalent.uk</a></p><p><a href="#contact">Send a message</a></p></div>
+  </div>
+  <p class="footline">&copy; <span id="yr"></span> CGTalent. All rights reserved.</p>
+</footer>
+
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+const form=document.getElementById('cform');
+if(form){form.addEventListener('submit',async function(ev){const s=document.getElementById('status');const a=form.action;ev.preventDefault();if(a.includes('YOUR_FORM_ID')){s.textContent='Form not yet connected - please email contact@cgtalent.uk. Thank you!';return;}s.textContent='Sending...';try{const r=await fetch(a,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});if(r.ok){form.reset();s.textContent="Thanks - your message is on its way.";}else{s.textContent='Please email us at contact@cgtalent.uk.';}}catch(e){s.textContent='Please email us at contact@cgtalent.uk.';}});}
+</script>
+</body>
+</html>
