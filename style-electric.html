@@ -221,11 +221,11 @@
 
 <section class="sec-purple" id="mike">
   <div class="wrap split">
-    <div class="frame duo duo-black" style="aspect-ratio:1/1;">
-      <img src="images/toolan_3.jpg" alt="Mike Toolan">
+    <div class="frame" style="aspect-ratio:1/1;border:1px solid rgba(255,255,255,.2);">
+      <img src="images/mike-host.jpg" alt="Mike Toolan hosting a live event" style="display:block;width:100%;height:100%;object-fit:cover;object-position:center center;">
     </div>
     <div class="sec-copy">
-      <span style="display:inline-block;border:1px solid rgba(255,255,255,.65);border-radius:999px;padding:7px 18px;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:16px;">Featured Talent</span>
+      <span style="display:inline-block;border:1px solid rgba(255,255,255,.65);border-radius:999px;padding:9px 22px;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:18px;">Featured Talent</span>
       <span class="label">Live event host</span>
       <h2 style="font-size:clamp(1.9rem,4vw,2.8rem);">Mike Toolan</h2>
       <div class="tagline">Broadcaster. Presenter. Live host.</div>
@@ -276,11 +276,12 @@
     <h2>On air. On stage. In the room.</h2>
     <p style="margin-top:18px;max-width:660px;line-height:1.9;">From studios and stages to awards nights, conferences and major live events - this is where our talent comes alive.</p>
     <div class="gallery-grid">
-      <div class="g red"><img src="images/LIVE.jpg" alt="Brit Fest 2026"><span class="cap">Brit Fest 2026</span></div>
+      <div class="g red"><img src="images/brit-fest-2026.jpg" alt="Brit Fest 2026"><span class="cap">Brit Fest 2026</span></div>
       <div class="g red"><img src="images/toolan_1.jpg" alt="Hosting on stage"><span class="cap">Hosting on stage</span></div>
       <div class="g red"><img src="images/toolan_2.jpg" alt="Festivals"><span class="cap">Festivals</span></div>
       <div class="g red"><img src="images/toolan_3.jpg" alt="Keeping the crowd entertained"><span class="cap">Keeping the crowd entertained</span></div>
       <div class="g red"><img src="images/toolan_5.jpg" alt="Behind the scenes"><span class="cap">Behind the scenes</span></div>
+      <div class="g red"><img src="images/corporate-events.jpg" alt="Corporate events and charity balls"><span class="cap">Corporate Events &amp; Charity Balls</span></div>
     </div>
   </div>
 </section>
@@ -291,9 +292,20 @@
     <h2>Let&rsquo;s put someone brilliant on your stage.</h2>
     <p style="margin-top:18px;max-width:640px;line-height:1.9;">Looking for a host for your event? Let&rsquo;s find them. <strong>Tell us what you have in mind.</strong> We aim to respond within two working days.</p>
     <div class="box">
-      <form id="cform" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <div style="text-align:center;padding-bottom:26px;margin-bottom:28px;border-bottom:1px solid rgba(255,255,255,.2);">
+        <p style="font-family:var(--display);text-transform:uppercase;font-size:1.5rem;line-height:1.1;">Let&rsquo;s talk!</p>
+        <p style="margin-top:12px;font-size:.95rem;line-height:1.85;">Contact CGTalent - or simply pick up the phone. Call, text or WhatsApp us any time; there&rsquo;s a real person at this end.</p>
+        <a href="tel:+447861362636" style="display:inline-block;margin-top:18px;font-family:var(--display);font-size:1.75rem;color:#fff;text-decoration:none;">07861 36 26 36</a>
+        <span class="label" style="display:block;opacity:.7;margin-top:10px;">Call / Text / WhatsApp</span>
+      </div>
+      <form id="cform" name="contact" method="POST" action="https://api.web3forms.com/submit">
+        <input type="hidden" name="access_key" value="d6c9c70c-4508-4a5f-a254-8b35ee40bdb6">
+        <input type="hidden" name="subject" value="New enquiry from the CGTalent website">
+        <input type="hidden" name="from_name" value="CGTalent website">
+        <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off">
         <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" required placeholder="Your name"></div>
         <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required placeholder="you@example.com"></div>
+        <div class="field"><label for="phone">Phone Number</label><input id="phone" name="phone" type="tel" placeholder="So we can call you back"></div>
         <div class="field"><label for="tl">I'm interested in</label>
           <select id="tl" name="type">
             <option value="booking">Booking a live event host</option>
@@ -325,6 +337,7 @@
     <div>
       <h4>Contact</h4>
       <p><a href="mailto:contact@cgtalent.uk">contact@cgtalent.uk</a></p>
+      <p><a href="tel:+447861362636" style="white-space:nowrap;">UK - Call / Text / WhatsApp: 07861 36 26 36</a></p>
       <p><a href="#contact">Send a message</a></p>
     </div>
   </div>
@@ -334,7 +347,18 @@
 <script>
 document.getElementById('yr').textContent=new Date().getFullYear();
 const form=document.getElementById('cform');
-if(form){form.addEventListener('submit',async function(ev){const s=document.getElementById('status');const a=form.action;ev.preventDefault();if(a.includes('YOUR_FORM_ID')){s.textContent='Form not yet connected - please email contact@cgtalent.uk. Thank you!';return;}s.textContent='Sending...';try{const r=await fetch(a,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});if(r.ok){form.reset();s.textContent="Thanks - your message is on its way.";}else{s.textContent='Please email us at contact@cgtalent.uk.';}}catch(e){s.textContent='Please email us at contact@cgtalent.uk.';}});}
+if(form){form.addEventListener('submit',async function(ev){
+  const s=document.getElementById('status');ev.preventDefault();s.textContent='Sending...';
+  const fd=new FormData(form);const payload={};
+  fd.forEach((v,k)=>{payload[k]=v;});
+  payload.access_key='d6c9c70c-4508-4a5f-a254-8b35ee40bdb6';
+  try{
+    const r=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(payload)});
+    const j=await r.json().catch(function(){return {};});
+    if(r.ok&&j.success){form.reset();s.style.opacity='1';s.style.fontSize='1.7rem';s.style.fontWeight='700';s.style.lineHeight='1.35';s.style.letterSpacing='0.02em';s.style.marginTop='20px';s.textContent='\uD83C\uDF89 Thank you for contacting us - we will get back to you asap.';}
+    else{s.textContent='Sorry, something went wrong. Please email contact@cgtalent.uk.';}
+  }catch(e){s.textContent='Sorry, something went wrong. Please email contact@cgtalent.uk.';}
+});}
 </script>
 </body>
 </html>
